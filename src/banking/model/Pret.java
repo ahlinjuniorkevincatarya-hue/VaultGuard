@@ -50,6 +50,7 @@ public class Pret {
     public Client  getClient()              { return client; }
     public double  getMontantInitial()      { return montantInitial; }
     public double  getSoldeRestant()        { return soldeRestant; }
+    public LocalDate getDateDebut()         { return dateDebut; }
     public int     getMensualitesPaye()     { return mensualitesPaye; }
     public int     getMensualitesRestantes(){ return dureeEnMois - mensualitesPaye; }
 

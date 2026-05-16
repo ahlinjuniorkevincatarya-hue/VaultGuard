@@ -6,6 +6,14 @@ import banking.model.abstracts.Compte;
 import banking.service.FormateurString;
 import banking.service.GestionnaireClients;
 import java.time.LocalDate;
+import banking.service.persistence.RapportDepenses;
+import banking.service.persistence.PersistanceService;
+import banking.model.abstracts.Transaction;
+import banking.model.transactions.Retrait;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class Main {
 
@@ -20,6 +28,7 @@ public class Main {
         testModification();
         testRecherche();
         testFormateurString();
+        testPart5();
 
         System.out.println(SEP);
         System.out.println("✅ Tous les tests Membre 2 sont terminés.");
@@ -136,4 +145,79 @@ public class Main {
         System.out.println("  masquerEmail               → " + FormateurString.masquerEmail("alice@gmail.com"));
         System.out.println(" FormateurString OK");
     }
+    static void testPart5() {
+
+    System.out.println(SEP);
+    System.out.println("TEST PARTIE 5");
+
+    try {
+
+        Client c = new Client(
+                "AA123",
+                "Smith",
+                "John",
+                "john@gmail.com",
+                LocalDate.of(2000,1,1)
+        );
+
+        List<Transaction> list =
+                new ArrayList<>();
+
+        list.add(
+                new Retrait(
+                        "T1",
+                        200,
+                        "restaurant"
+                )
+        );
+
+        list.add(
+                new Retrait(
+                        "T2",
+                        50,
+                        "uber"
+                )
+        );
+
+        RapportDepenses r =
+                new RapportDepenses(
+                        LocalDate.now().getMonthValue(),
+                        LocalDate.now().getYear(),
+                        c,
+                        list
+                );
+
+        r.generer();
+
+        r.afficher();
+
+        r.exporter();
+
+        HashMap<String,Client> clients =
+                new HashMap<>();
+
+        clients.put(
+                c.getCin(),
+                c
+        );
+
+        PersistanceService p =
+                new PersistanceService();
+
+        p.sauvegarderClients(clients);
+
+        p.sauvegarderTransactions(list);
+
+        System.out.println("Partie 5 OK");
+
+    } catch(Exception e){
+
+        System.out.println(
+                "Erreur Partie 5 : "
+                        + e.getMessage()
+        );
+
+        e.printStackTrace();
+    }
+}
 }
