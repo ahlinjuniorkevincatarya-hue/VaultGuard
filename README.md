@@ -107,6 +107,34 @@ Projet réalisé par un groupe de 5 étudiants.
 
 ---
 
+## Répartition des tâches
+
+Cette section reprend les responsabilités principales de chaque membre. Le suivi exact des contributions reste géré par Git (commits, auteurs, `git blame`, `git log`).
+
+- Conception et architecture du projet -> CATARYA kévin 
+
+       • Création de la structure complète du projet 
+       • Modélisation UML du projet 
+       • Vérification globale de l'ensemble du projet 
+       • Création du menu console pour les différents tests de l'application 
+       
+    branch : main , feature/menu-console 
+
+- Gestion des clients et des comptes -> El HATIMI NEZAR 
+
+        Classe Client avec toutes les opérations CRUD (créer, modifier, supprimer, afficher)
+        • Gestion des comptes bancaires associés à chaque client
+        • Stockage avec les collections Java : HashMap, ArrayList
+        • Traitement des chaînes de caractères : noms, IBANs, formatage des données 
+        • Exceptions personnalisées : ClientInexistantException, CompteDejaExistantException
+
+- Implémentation des opérations bancaires et historique des transactions -> Younes Benamar
+- Mise en place du détecteur de fraude -> Yassin TOUGGANI
+- Génération des rapports et persistance des données -> SALAH-EDDINE KAOUCHOUNE
+
+
+---
+
 ## Prérequis et lancement
 
 **Prérequis :**
