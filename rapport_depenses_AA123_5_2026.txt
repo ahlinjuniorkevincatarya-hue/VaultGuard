@@ -1,0 +1,8 @@
+===== RAPPORT MENSUEL =====
+Client: John Smith
+Mois: 5/2026
+
+Nourriture : 200 DH
+Transport : 50 DH
+
+Total: 250 DH
